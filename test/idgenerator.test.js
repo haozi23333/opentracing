@@ -29,13 +29,13 @@ describe('id generator', function () {
   });
 
   it('generator ipv4 id should ok', function () {
-    console.log(`获取到的IP为 ${internalIp}`);
+    console.log(`获取到的IP为 ${internalIp.v4.sync()} ||  ${internalIp.v6.sync()}`);
     let ipAddress = internalIp.v4.sync() || internalIp.v6.sync();
     expect(idGenerator.generateIpv4Id()).to.be(ipAddress.split('.').join(''));
   });
 
   it('generator ipv4 by id should ok', function () {
-    console.log(`获取到的IP为 ${internalIp}`);
+    console.log(`获取到的IP为 ${internalIp.v4.sync()} ||  ${internalIp.v6.sync()}`);
     let ipAddress = internalIp.v4.sync() || internalIp.v6.sync();
     expect(idGenerator.generateIpv4IdByIp()).to.be(ipAddress.split('.').join(''));
     expect(idGenerator.generateIpv4IdByIp('8.8.8.8')).to.be('8888');
